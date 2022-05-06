@@ -1,0 +1,80 @@
+<div class="loading-indicator" *ngIf="show != true">
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="primary"
+  ></mat-progress-spinner>
+</div>
+
+<mat-toolbar
+  style="min-height: 55px !important; height: 55px !important"
+  class="mat-elevation-z6"
+>
+  <span class="font-14">Mercado Negro de Carros</span>
+  <span class="example-spacer"></span>
+  <span class="font-14">Saldo : {{ balance }} ETH</span>
+</mat-toolbar>
+
+<!--<div style="text-align: center">-->
+
+<!--<iframe frameborder=0 style="min-width: 200px; width: 55%; height: 460px;" scrolling="no" seamless="seamless"-->
+<!--srcdoc='<html><body><style type="text/css">.gist .gist-data { height: 400px; }</style><script src="https://gist.github.com/Sudhanmanoharan/4a2eb15e846d1fa107d6589c379817a4.js"></script></body></html>'></iframe>-->
+<!--</div>-->
+
+<!--<div [innerHTML]="data.html">-->
+<!--</div>-->
+
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">list</mat-icon>
+      Lista de Carros
+    </ng-template>
+    <div class="text-center">
+      <img src="../assets/lista.svg" />
+    </div>
+    <div class="text-center">
+      <img width="50" height="50" src="../assets/ethereum.png" />
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">add</mat-icon>
+      Comprar Carro
+    </ng-template>
+
+    <div class="text-center">
+      <h3>Compre seu Carro</h3>
+
+      <div class="example-form margin-auto">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Nome do Carro</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Product Name"
+            [(ngModel)]="productName"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Preço do carro</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Product Price"
+            [(ngModel)]="productPrice"
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          (click)="createProducts(productName, productPrice)"
+        >
+          Comprar
+        </button>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<router-outlet></router-outlet>
